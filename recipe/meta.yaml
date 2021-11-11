@@ -1,5 +1,5 @@
 {% set name = "basis_set_exchange" %}
-{% set version = "0.8.13" %}
+{% set version = "0.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 78e2cf3d9b6862e82b27e019c09812e01d40b785014a3969fd51b52079c90122
+  sha256: d1100c17821292fba94e30a0bf646e7a8ce362f9ef80de994185fe1c921aa487
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - bse=basis_set_exchange.cli:run_bse_cli
     - bsecurate=basis_set_exchange.cli:run_bsecurate_cli
@@ -23,8 +23,9 @@ requirements:
     - pip
   run:
     - python >=3.5
-    - jsonschema 
+    - jsonschema
     - argcomplete
+    - regex
 
 test:
   imports:
@@ -38,7 +39,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'A repository for quantum chemistry basis sets'
+  summary: A repository for quantum chemistry basis sets
   doc_url: https://molssi-bse.github.io/basis_set_exchange/
   dev_url: https://github.com/MolSSI-BSE/basis_set_exchange
 
