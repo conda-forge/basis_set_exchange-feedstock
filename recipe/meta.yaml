@@ -1,5 +1,5 @@
 {% set name = "basis_set_exchange" %}
-{% set version = "0.9.1" %}
+{% set version = "0.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 19d2df6c25d33e14b9976f7cb85fb25795f0a90d8284eec5fae1768208f3899d
+  sha256: 8cf7f624f2b2d6f531f34d546ad18944f38d0838d04730da80e3ef6b21c3319f
 
 build:
   noarch: python
