@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - bse=basis_set_exchange.cli:run_bse_cli
@@ -21,6 +21,8 @@ requirements:
   host:
     - python >=3.8
     - pip
+    - setuptools >=61.0
+    - setuptools-scm >=8.0
   run:
     - python >=3.8
     - jsonschema
@@ -34,6 +36,9 @@ test:
   commands:
     - bse -h
     - bsecurate -h
+    - test -f $SP_DIR/basis_set_exchange/__init__.py
+    - pip check
+    - python -c "import basis_set_exchange as qc;print(qc.__version__);assert qc.__version__ == '{{ version }}', f'{qc.__version__=} differs from recipe=\'{{ version }}\''"
 
 about:
   home: https://github.com/MolSSI-BSE/basis_set_exchange
