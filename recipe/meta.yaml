@@ -19,12 +19,12 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - setuptools >=61.0
     - setuptools-scm >=8.0
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - jsonschema
     - argcomplete
     - regex
@@ -34,6 +34,7 @@ test:
   imports:
     - basis_set_exchange
   requires:
+    - python {{ python_min }}
     - pip
   commands:
     - bse -h
